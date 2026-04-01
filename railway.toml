@@ -1,0 +1,8 @@
+[build]
+builder = "NIXPACKS"
+installCommand = "composer install && npm install"
+buildCommand = "npm run build"
+
+[deploy]
+startCommand = "vendor/bin/heroku-php-apache2 public/"
+preDeployCommand = "php artisan migrate --force --seed"
